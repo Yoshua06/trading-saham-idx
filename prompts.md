@@ -41,7 +41,7 @@ ATURAN OUTPUT:
   Stockbit, RTI, riset Mandiri/Mirae/BRIDS
 
 SETELAH BRIEFING SELESAI:
-Simpan output sebagai file markdown baru di repo "trading-journal" 
+Simpan output sebagai file markdown baru di repo "trading-saham-idx" 
 dengan path "briefings-daily/YYYY-MM-DD.md" (ganti YYYY-MM-DD dengan 
 tanggal hari ini), lalu commit dengan message:
 "Daily IDX brief - YYYY-MM-DD"
@@ -94,7 +94,7 @@ ATURAN OUTPUT:
 - Sumber: IDX, Stockbit, RTI, CNBC Indonesia, Bisnis.com
 
 SETELAH BRIEFING SELESAI:
-Simpan output sebagai file markdown baru di repo "trading-journal" 
+Simpan output sebagai file markdown baru di repo "trading-saham-idx" 
 dengan path "midday/YYYY-MM-DD.md" (ganti YYYY-MM-DD dengan 
 tanggal hari ini), lalu commit dengan message:
 "Mid-day IDX brief - YYYY-MM-DD"
@@ -155,7 +155,7 @@ ATURAN OUTPUT:
   Investing.com (kalender ekonomi), riset Mandiri/Mirae/BRIDS
 
 SETELAH BRIEFING SELESAI:
-Simpan output sebagai file markdown baru di repo "trading-journal" 
+Simpan output sebagai file markdown baru di repo "trading-saham-idx" 
 dengan path "weekly/YYYY-MM-DD.md" (ganti YYYY-MM-DD dengan 
 tanggal Minggu hari ini), lalu commit dengan message:
 "Weekly IDX brief - YYYY-MM-DD"
@@ -215,7 +215,7 @@ ATURAN OUTPUT:
   Investortrust, sahamidx.com
 
 SETELAH BRIEFING SELESAI:
-Simpan output sebagai file markdown baru di repo "trading-journal" 
+Simpan output sebagai file markdown baru di repo "trading-saham-idx" 
 dengan path "dividends/YYYY-MM-DD.md" (ganti YYYY-MM-DD dengan 
 tanggal hari ini), lalu commit dengan message:
 "Dividend tracker - YYYY-MM-DD"
