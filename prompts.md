@@ -261,6 +261,7 @@ Tabel lengkap semua posisi (open + closed minggu lalu):
 Kolom: Kode | Status awal | Status akhir | Entry → harga Jumat | P&L % | Days to Expiry / Closed date | Note.
 Hit rate minggu lalu: X dari Y picks closed mencapai TP1 (%).
 Lessons learned: 1-2 kalimat (pattern yang work / fail).
+Jika ledger dan closed.md kosong: "Belum ada posisi tercatat. Hit rate: N/A. Mulai kumpulkan data minggu ini."
 
 ## 2. RECAP MINGGU LALU
 - IHSG WoW change, foreign net flow weekly
@@ -295,7 +296,7 @@ Setiap pick:
   - TP1: [level] (anchor, target 3-5 hari)
   - TP2 aspirasional: [level] (anchor, target 1-2 minggu)
   - SL: [level] (anchor)
-  - R:R = [perhitungan, ≥ 2.00]
+  - R:R = (TP1−Entry)/(Entry−SL) = [perhitungan eksplisit, ≥ 2.00]
   - Sumber: [2-3 link]
 
 ## 6. RISK MAP
