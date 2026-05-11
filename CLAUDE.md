@@ -16,6 +16,7 @@ All generated briefings are saved as markdown files with the naming pattern `YYY
 | `midday/` | Mid-day session 2 check (12:30 WIB) | `Mid-day IDX brief - YYYY-MM-DD` |
 | `weekly/` | Sunday weekly outlook (19:00 WIB) | `Weekly IDX brief - YYYY-MM-DD` |
 | `dividends/` | Monday dividend tracker (06:30 WIB) | `Dividend tracker - YYYY-MM-DD` |
+| `journal/` | Live positions ledger (`positions.md`) + closed archive (`closed.md`) | Updated atomically with the routine that touches it; same commit message as that routine |
 
 After generating a briefing, always save it to the correct directory and commit with the exact message format above.
 
@@ -25,6 +26,18 @@ After generating a briefing, always save it to the correct directory and commit 
 - **Universe**: LQ45 and IDX30 stocks only — never recommend stocks outside this universe
 - **Persona**: Act as a professional Indonesian portfolio manager
 - **Language**: Output briefings in Bahasa Indonesia
+
+## Trading Discipline (enforced by GLOBAL RULES in `prompts.md`)
+
+- Max **5** swing positions open across `journal/positions.md` (status PLANNED or TRIGGERED)
+- Max **2** positions per sector (Banking, Metals, Energy, OilGas, Consumer, CPO, Property, Auto, Healthcare, Tech, Telco, Tower, Power, Cement, Conglomerate)
+- Every Entry / TP1 / TP2 / SL must cite a chart anchor (20D high, MA50, swing low + date, gap fill, Fibonacci, opening-range for intraday). Round-number-only levels are invalid — drop the pick.
+- R:R ≥ **2.00** measured as `(TP1 − Entry) / (Entry − SL)`. TP1-base only; do not measure to TP2. If a setup fails, drop it — do not stretch TP1 to force the ratio.
+- Conviction tiers: **FULL** 100% / **HALF** 50% / **TEST** 25% of the standard position unit.
+- Position expires after **10 trading days** untriggered (auto-moved to `closed.md` as `EXPIRED`).
+- Ledger writes (`journal/positions.md`, `journal/closed.md`) happen in the **same commit** as the brief that triggered them. Never split brief and ledger across commits.
+- Mid-day intraday picks do NOT consume the 5-position cap — they close same day and stay out of the ledger.
+- Dividend captures are NOT written to the ledger in v1 — graded inline in each Monday's dividend brief.
 
 ## Prompts
 
