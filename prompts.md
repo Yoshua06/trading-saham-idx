@@ -141,14 +141,18 @@ LANGKAH 4 — UPDATE journal/positions.md:
 
 LANGKAH 5 — SIMPAN & COMMIT (atomic):
 - File brief: briefings/YYYY-MM-DD.md
-- Stage: briefings/YYYY-MM-DD.md, journal/positions.md, journal/closed.md
-- Commit: `Daily IDX brief - YYYY-MM-DD`
+- Jalankan:
+    git add briefings/YYYY-MM-DD.md journal/positions.md journal/closed.md
+    git commit -m "Daily IDX brief - YYYY-MM-DD"
 
 ATURAN OUTPUT:
 - Maks 600 kata
-- Jika pasar libur: hanya jalankan grade expiry pada Langkah 1, output
-  "Pasar libur — tidak ada brief baru hari ini" + commit hanya ledger
-  changes (commit message: `Daily IDX - expiry sweep YYYY-MM-DD`).
+- Jika pasar libur: hanya jalankan grade expiry pada Langkah 1.
+  Output "Pasar libur — tidak ada brief baru hari ini".
+  Jika ada expiry move:
+    git add journal/positions.md journal/closed.md
+    git commit -m "Daily IDX - expiry sweep YYYY-MM-DD"
+  Jika tidak ada expiry move: tidak ada commit, stop.
 
 ================================================
 
@@ -202,6 +206,9 @@ Setiap setup:
   - TP intraday: [level] (anchor)
   - SL ketat: [level] (anchor)
   - R:R = [perhitungan, minimum 1:1.5 untuk intraday]
+    ← Khusus intraday: R:R floor 1:1.5 berlaku karena setup
+       ini tidak consume slot swing dan ditutup hari yang sama.
+       GLOBAL RULES minimum 1:2 hanya untuk swing picks.
   - Validasi: foreign accumulation sesi 1 atau bandar action?
 
 ## 5. ALERT & RISK
@@ -217,8 +224,9 @@ Langkah 1. Setup sesi 2 TIDAK ditulis ke ledger.
 
 LANGKAH 5 — SIMPAN & COMMIT (atomic):
 - File brief: midday/YYYY-MM-DD.md
-- Stage: midday/YYYY-MM-DD.md, journal/positions.md, journal/closed.md
-- Commit: `Mid-day IDX brief - YYYY-MM-DD`
+- Jalankan:
+    git add midday/YYYY-MM-DD.md journal/positions.md journal/closed.md
+    git commit -m "Mid-day IDX brief - YYYY-MM-DD"
 
 ATURAN OUTPUT:
 - Maks 400 kata
@@ -302,8 +310,9 @@ grade updates dari Langkah 1).
 
 LANGKAH 5 — SIMPAN & COMMIT (atomic):
 - File brief: weekly/YYYY-MM-DD.md (tanggal Minggu hari ini)
-- Stage: weekly/YYYY-MM-DD.md, journal/positions.md, journal/closed.md
-- Commit: `Weekly IDX brief - YYYY-MM-DD`
+- Jalankan:
+    git add weekly/YYYY-MM-DD.md journal/positions.md journal/closed.md
+    git commit -m "Weekly IDX brief - YYYY-MM-DD"
 
 ATURAN OUTPUT:
 - Maks 800 kata
@@ -370,9 +379,12 @@ Langkah 1. Dividend captures TIDAK ditulis ke ledger di v1.
 
 LANGKAH 5 — SIMPAN & COMMIT (atomic):
 - File brief: dividends/YYYY-MM-DD.md
-- Stage: dividends/YYYY-MM-DD.md, journal/positions.md (jika ada changes),
-  journal/closed.md (jika ada expiry move)
-- Commit: `Dividend tracker - YYYY-MM-DD`
+- Jika ada expiry move di LANGKAH 1:
+    git add dividends/YYYY-MM-DD.md journal/positions.md journal/closed.md
+- Jika tidak ada expiry move:
+    git add dividends/YYYY-MM-DD.md
+- Lalu jalankan:
+    git commit -m "Dividend tracker - YYYY-MM-DD"
 
 ATURAN OUTPUT:
 - Maks 500 kata, prioritas tabel
